@@ -1,15 +1,17 @@
 {
-		"short_name": "PWA Test",
-		"name": "PWA Test",
-		"start_url": "/index.html",
-		"background_color": "#1c5680",
-		"display": "standalone",
-		"theme_color": "#1c5680",
-		"icons": [
-			 {
-					 "src": "/icon.png",
-					 "type": "image/png",
-					 "sizes": "128x128"
-			 }
-		 ]
+  "short_name": "PWA Test",
+  "name": "PWA Test",
+  "start_url": "/index.html",
+  "background_color": "#2d2d2d",
+  "display": "standalone",
+  "theme_color": "#146067",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    }
+  ],
+  "id": "pwatest",
+  "description": "A Basic PWA Test."
 }
