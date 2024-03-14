@@ -1,28 +1,9 @@
-const custom_offline_page = "offline.html"
+const CACHE = "pwabuilder-offline";
 
-self.addEventListener('install', event => {
-	event.waitUntil(
-		caches.open('CacheName').then((cache) => {
-			return cache.addAll([
-				custom_offline_page
-			])
-		})
-	)
-})
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
 
-self.addEventListener("fetch", (event) => {
-	event.respondWith(
-		(async () => {
-			try {
-				// Fetch request from network
-				const networkResponse = await fetch(event.request)
-				return networkResponse
-			} catch (error) {
-				// Error thrown when a user has no internet connection
-				const cache = await caches.open('CacheName')
-				const cachedResponse = await cache.match(custom_offline_page)
-				return cachedResponse
-			}
-		})()
-	)
-})
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
+});
